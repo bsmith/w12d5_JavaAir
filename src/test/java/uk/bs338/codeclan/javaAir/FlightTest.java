@@ -14,6 +14,10 @@ public class FlightTest {
     private Flight flight;
     private Passenger passengerWithFiveBags;
     private Passenger passengerWithOneBag;
+    private CabinCrewMember purser;
+    private CabinCrewMember attendant;
+    private Pilot captain;
+    private Pilot firstOfficer;
 
     @Before
     public void setUp() {
@@ -28,14 +32,14 @@ public class FlightTest {
         );
         passengerWithFiveBags = new Passenger("Keith", 3);
         passengerWithOneBag = new Passenger("Mar", 1);
+        purser = new CabinCrewMember("Purser", true);
+        attendant = new CabinCrewMember("Attendant", false);
+        captain = new Pilot("Pilot 1", "P1", true);
+        firstOfficer = new Pilot("Pilot 2", "P2", false);
     }
 
     @Test
     public void canSetFlightCrew() {
-        Pilot captain = new Pilot("Pilot 1", "P1", true);
-        Pilot firstOfficer = new Pilot("Pilot 2", "P2", false);
-        CabinCrewMember purser = new CabinCrewMember("Purser", true);
-        CabinCrewMember attendant = new CabinCrewMember("Attendant", false);
         flight.addPilot(firstOfficer);
         flight.addPilot(captain);
         flight.addCabinCrew(attendant);
@@ -59,6 +63,12 @@ public class FlightTest {
     public void availableSeatsDecreases() throws FlightFullException {
         assertTrue(flight.bookPassenger(passengerWithOneBag));
         assertEquals(4, flight.getAvailableSeats());
+    }
+
+    @Test
+    public void passengersAddedToList() throws FlightFullException {
+        assertTrue(flight.bookPassenger(passengerWithOneBag));
+        assertSame(passengerWithOneBag, flight.getPassengers().get(0));
     }
 
 //    @Test(expected = NotImplementedException.class)
@@ -88,5 +98,39 @@ public class FlightTest {
             return;
         }
         fail("bookPassenger should have thrown exception");
+    }
+
+    @Test
+    public void canChangeAircraft() {
+        Plane replacementAircraft = new Plane("G987", PlaneType.BOEING747);
+        flight.setAircraft(replacementAircraft);
+        assertSame(flight.getAircraft(), replacementAircraft);
+    }
+
+    @Test
+    public void delegatesCabinCrewTasks() {
+        flight.addCabinCrew(purser);
+        flight.addCabinCrew(attendant);
+        flight.removeCabinCrew(purser);
+        assertFalse(flight.getCabinCrew().contains(purser));
+        assertTrue(flight.getCabinCrew().contains(attendant));
+        assertFalse(flight.hasPurser());
+    }
+
+    @Test
+    public void delegatesPilotTasks() {
+        flight.addPilot(captain);
+        flight.addPilot(firstOfficer);
+        flight.removePilot(captain);
+        assertNull(flight.getCaptain());
+        assertSame(firstOfficer, flight.getCopilot());
+    }
+
+    @Test
+    public void canUpdateFlightDetails() {
+        FlightDetails newDetails = flight.getDetails()
+                        .withDestination("London");
+        flight.setDetails(newDetails);
+        assertEquals(newDetails, flight.getDetails());
     }
 }
