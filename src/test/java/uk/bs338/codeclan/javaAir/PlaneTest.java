@@ -1,7 +1,6 @@
 package uk.bs338.codeclan.javaAir;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

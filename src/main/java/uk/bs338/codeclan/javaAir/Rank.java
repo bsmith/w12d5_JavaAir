@@ -4,5 +4,5 @@ public enum Rank {
     CAPTAIN,
     FIRST_OFFICER,
     PURSER,
-    ATTENDANT;
+    ATTENDANT
 }
