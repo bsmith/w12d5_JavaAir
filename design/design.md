@@ -5,6 +5,13 @@ classDiagram
     CrewMember <|-- CabinCrewMember
     CrewMember <|-- Pilot
     
+    Flight -- Pilot
+    Flight -- CabinCrewMember
+    Flight -- Plane
+    Flight *-- FlightDetails
+    
+    PlaneType -- Plane
+    
     NamedPerson : String name
 
     class Passenger {
@@ -22,6 +29,11 @@ classDiagram
     class Pilot {
       -String licenceNumber
       +String flyPlane(Plane)
+    }
+    
+    class PlaneType {
+      -double totalWeight
+      -double capacity
     }
     
     class Plane {
