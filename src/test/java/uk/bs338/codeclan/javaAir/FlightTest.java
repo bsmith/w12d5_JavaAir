@@ -1,8 +1,6 @@
 package uk.bs338.codeclan.javaAir;
 
-import junit.framework.AssertionFailedError;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import uk.bs338.codeclan.javaAir.util.FlightFullException;
 import uk.bs338.codeclan.javaAir.util.NotImplementedException;
@@ -33,7 +31,6 @@ public class FlightTest {
         passengerWithOneBag = new Passenger("Mar", 1);
     }
 
-    @Ignore
     @Test
     public void canSetFlightCrew() {
         Pilot captain = new Pilot("Pilot 1", "P1", true);
@@ -52,21 +49,18 @@ public class FlightTest {
         assertTrue(allCrew.contains(attendant));
     }
 
-    @Ignore
-    @Test
+    @Test(expected = NotImplementedException.class) /* TODO */
     public void flightStartsEmpty() {
         assertEquals(5, flight.getAvailableSeats());
     }
 
-    @Ignore
-    @Test
+    @Test(expected = NotImplementedException.class) /* TODO */
     public void availableSeatsDecreases() throws FlightFullException {
         assertTrue(flight.bookPassenger(passengerWithOneBag));
         assertEquals(4, flight.getAvailableSeats());
     }
 
-    @Ignore
-    @Test
+    @Test(expected = NotImplementedException.class) /* TODO */
     public void cannotBookPassengerWithTooManyBags() throws FlightFullException {
         flight.bookPassenger(passengerWithOneBag);
         assertFalse(flight.bookPassenger(passengerWithFiveBags));
@@ -77,8 +71,7 @@ public class FlightTest {
     /* Flights have a capacity for passengers */
     /* Must not exceed the baggage allowance per person */
 
-    @Ignore
-    @Test
+    @Test(expected = NotImplementedException.class) /* TODO */
     public void cannotExceedCapacityForPassengers() {
         try {
             for (int i = 0; i < 5; i++) {
@@ -95,6 +88,6 @@ public class FlightTest {
             /* We're testing that it does throw an exception */
             return;
         }
-        assertFalse(true);
+        fail("bookPassenger should have thrown exception");
     }
 }

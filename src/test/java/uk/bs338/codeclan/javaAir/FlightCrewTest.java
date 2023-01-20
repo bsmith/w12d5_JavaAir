@@ -1,14 +1,12 @@
 package uk.bs338.codeclan.javaAir;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
 
 import static org.junit.Assert.*;
 
-@Ignore
 public class FlightCrewTest {
     private FlightCrew flightCrew;
     private Pilot captain;

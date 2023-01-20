@@ -1,7 +1,5 @@
 package uk.bs338.codeclan.javaAir;
 
-import uk.bs338.codeclan.javaAir.util.NotImplementedException;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,7 +7,11 @@ import java.util.List;
 public class FlightCrew {
     private Pilot captain;
     private Pilot copilot;
-    private ArrayList<CabinCrewMember> cabinCrew;
+    private final ArrayList<CabinCrewMember> cabinCrew;
+
+    public FlightCrew() {
+        this.cabinCrew = new ArrayList<>();
+    }
 
     public Pilot getCaptain() {
         return captain;
@@ -20,11 +22,20 @@ public class FlightCrew {
     }
 
     public void addPilot(Pilot pilot) {
-        throw new NotImplementedException();
+        if (captain == null && pilot.getRank() == Rank.CAPTAIN) {
+            captain = pilot;
+        } else if (copilot == null) {
+            copilot = pilot;
+        }
     }
 
-    public void removePilot(Pilot captain) {
-        throw new NotImplementedException();
+    public void removePilot(Pilot pilot) {
+        if (pilot == null)
+            return;
+        if (captain != null && captain.equals(pilot))
+            captain = null;
+        if (copilot != null && copilot.equals(pilot))
+            copilot = null;
     }
 
     public List<CabinCrewMember> getCabinCrew() {
@@ -40,10 +51,19 @@ public class FlightCrew {
     }
 
     public boolean hasPurser() {
-        throw new NotImplementedException();
+        for (CrewMember crewMember : this.cabinCrew)
+            if (crewMember.getRank() == Rank.PURSER)
+                return true;
+        return false;
     }
 
     public List<CrewMember> getAllCrew() {
-        throw new NotImplementedException();
+        ArrayList<CrewMember> allCrew = new ArrayList<>();
+        if (this.captain != null)
+            allCrew.add(this.captain);
+        if (this.copilot != null)
+            allCrew.add(this.copilot);
+        allCrew.addAll(this.cabinCrew);
+        return allCrew;
     }
 }
