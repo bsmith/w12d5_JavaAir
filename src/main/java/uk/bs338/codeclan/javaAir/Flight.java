@@ -35,6 +35,26 @@ public class Flight {
         return flightCrew.getCabinCrew();
     }
 
+    public void removePilot(Pilot captain) {
+        flightCrew.removePilot(captain);
+    }
+
+    public void addCabinCrew(CabinCrewMember crewMember) {
+        flightCrew.addCabinCrew(crewMember);
+    }
+
+    public void removeCabinCrew(CabinCrewMember crewMember) {
+        flightCrew.removeCabinCrew(crewMember);
+    }
+
+    public boolean hasPurser() {
+        return flightCrew.hasPurser();
+    }
+
+    public List<CrewMember> getAllCrew() {
+        return flightCrew.getAllCrew();
+    }
+
     public List<Passenger> getPassengers() {
         return Collections.unmodifiableList(passengers);
     }
@@ -59,7 +79,11 @@ public class Flight {
         throw new NotImplementedException();
     }
 
-    public void bookPassenger(Passenger passenger) throws FlightFullException {
+    /* If the passenger has too many bags, return false, otherwise, book the passenger
+      unless the plane is full, in which case throw an exception because callers
+      should have checked getAvailableSeats first.
+     */
+    public boolean bookPassenger(Passenger passenger) throws FlightFullException {
         throw new NotImplementedException();
     }
 }
