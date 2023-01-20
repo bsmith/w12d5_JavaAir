@@ -1,29 +1,37 @@
 package uk.bs338.codeclan.javaAir;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
-import uk.bs338.codeclan.javaAir.util.NotImplementedException;
 
 import static org.junit.Assert.*;
 
 public class PilotTest {
+    Pilot captain;
+    Pilot firstOfficer;
 
-    @Ignore
+    @Before
+    public void setUp() {
+        captain = new Pilot("Alice", "AAA123", true);
+        firstOfficer = new Pilot("Beth", "BBB456", false);
+    }
+
     @Test
     public void flyPlane() {
-        throw new NotImplementedException();
+        Plane plane = new Plane("G123", PlaneType.BOEING747);
+        String message = captain.flyPlane(plane);
+        /* message must contain the pilot's licenceNumber and name and the plane's registration*/
+        assertTrue(message.contains(captain.getLicenceNumber()));
+        assertTrue(message.contains(captain.getName()));
+        assertTrue(message.contains(plane.getRegistration()));
     }
 
     @Test
     public void correctRankForCaptain() {
-        Pilot captain = new Pilot("Alice", "AAA123", true);
         assertEquals(Rank.CAPTAIN, captain.getRank());
     }
 
     @Test
     public void correctRankForNonCaptain() {
-        Pilot firstOfficer = new Pilot("Beth", "BBB456", false);
         assertEquals(Rank.FIRST_OFFICER, firstOfficer.getRank());
     }
 }

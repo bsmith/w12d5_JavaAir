@@ -1,7 +1,5 @@
 package uk.bs338.codeclan.javaAir;
 
-import uk.bs338.codeclan.javaAir.util.NotImplementedException;
-
 public class Pilot extends CrewMember {
     private final boolean isCaptain;
     private final String licenceNumber;
@@ -17,7 +15,8 @@ public class Pilot extends CrewMember {
     }
 
     public String flyPlane(Plane aircraft) {
-        throw new NotImplementedException();
+        return String.format("%s with licence %s is flying plane %s",
+                this.getName(), this.getLicenceNumber(), aircraft.getRegistration());
     }
 
     @Override
