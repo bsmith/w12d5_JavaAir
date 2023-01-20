@@ -4,52 +4,50 @@ import uk.bs338.codeclan.javaAir.util.FlightFullException;
 import uk.bs338.codeclan.javaAir.util.NotImplementedException;
 
 import java.util.ArrayList;
-
-/* TODO: Pull flight crew behaviour out into a separate class */
-/* TODO: idea: rank shouldn't be an enum, but a set of isFoo methods on CrewMember */
+import java.util.Collections;
+import java.util.List;
 
 public class Flight {
-    private Pilot captain;
-    private Pilot copilot;
-    private ArrayList<CabinCrewMember> cabinCrew;
+    private final FlightCrew flightCrew;
     private ArrayList<Passenger> passengers;
     private Plane aircraft;
     private FlightDetails details;
 
     public Flight(FlightDetails details) {
+        this.flightCrew = new FlightCrew();
         this.details = details;
     }
 
     public Pilot getCaptain() {
-        return captain;
+        return flightCrew.getCaptain();
     }
 
     public void setCaptain(Pilot captain) {
-        this.captain = captain;
+        this.flightCrew.setCaptain(captain);
     }
 
     public Pilot getCopilot() {
-        return copilot;
+        return flightCrew.getCopilot();
     }
 
     public void setCopilot(Pilot copilot) {
-        this.copilot = copilot;
+        this.flightCrew.setCopilot(copilot);
     }
 
     public ArrayList<CabinCrewMember> getCabinCrew() {
-        return cabinCrew;
+        return flightCrew.getCabinCrew();
     }
 
-    public void setCabinCrew(ArrayList<CabinCrewMember> cabinCrew) {
-        this.cabinCrew = cabinCrew;
+    public void setCabinCrew(List<CabinCrewMember> cabinCrew) {
+        this.flightCrew.setCabinCrew(cabinCrew);
     }
 
-    public ArrayList<Passenger> getPassengers() {
-        return passengers;
+    public List<Passenger> getPassengers() {
+        return Collections.unmodifiableList(passengers);
     }
 
-    public void setPassengers(ArrayList<Passenger> passengers) {
-        this.passengers = passengers;
+    public void setPassengers(List<Passenger> passengers) {
+        this.passengers = new ArrayList<>(passengers);
     }
 
     public Plane getAircraft() {

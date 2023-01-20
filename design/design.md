@@ -1,3 +1,5 @@
+# Initial design
+
 ```mermaid
 classDiagram
     NamedPerson <|-- Passenger
@@ -85,3 +87,14 @@ CrewMember and NamedPerson should be abstract
 If I make FlightDetails immutable, the Flight needs to update the whole object.
 
 How much should I check for null?
+
+# Redesigns
+
+## Handle rank better
+
+* Remove rank as a private member of CrewMember
+* Add `boolean isCaptainRank` to Pilot and `boolean isPurser` to CabinCrewMember
+* Use the above attributes to reimplement `getRank` in the subclasses, and mark `getRank` as abstract
+* Remove `checkRankValid`
+
+Advantages of this?  It makes sure we never have a CrewMember derived instance that is in an invalid state (relative to rank).

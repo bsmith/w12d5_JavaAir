@@ -1,17 +1,10 @@
 package uk.bs338.codeclan.javaAir;
 
 public abstract class CrewMember extends NamedPerson {
-    private final Rank rank;
 
-    public CrewMember(String name, Rank rank) {
+    public CrewMember(String name) {
         super(name);
-        this.rank = rank;
-        this.checkRankValid();
     }
 
-    public Rank getRank() {
-        return rank;
-    }
-
-    public abstract boolean checkRankValid();
+    public abstract Rank getRank();
 }

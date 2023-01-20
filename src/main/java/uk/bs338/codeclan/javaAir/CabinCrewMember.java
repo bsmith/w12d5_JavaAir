@@ -3,8 +3,11 @@ package uk.bs338.codeclan.javaAir;
 import uk.bs338.codeclan.javaAir.util.NotImplementedException;
 
 public class CabinCrewMember extends CrewMember {
-    public CabinCrewMember(String name, Rank rank) {
-        super(name, rank);
+    private final boolean isPurser;
+
+    public CabinCrewMember(String name, boolean isPurser) {
+        super(name);
+        this.isPurser = isPurser;
     }
 
     String passengerAnnouncement(Iterable<Passenger> passengers) {
@@ -12,7 +15,7 @@ public class CabinCrewMember extends CrewMember {
     }
 
     @Override
-    public boolean checkRankValid() {
-        throw new NotImplementedException();
+    public Rank getRank() {
+        return isPurser ? Rank.PURSER : Rank.ATTENDANT;
     }
 }
