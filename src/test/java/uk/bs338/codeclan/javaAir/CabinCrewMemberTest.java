@@ -1,17 +1,33 @@
 package uk.bs338.codeclan.javaAir;
 
-import org.junit.Ignore;
 import org.junit.Test;
-import uk.bs338.codeclan.javaAir.util.NotImplementedException;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
 public class CabinCrewMemberTest {
 
-    @Ignore
     @Test
-    public void passengerAnnouncement() {
-        throw new NotImplementedException();
+    public void canMakePassengerAnnouncement() {
+        CabinCrewMember crewMember = new CabinCrewMember("Eric", false);
+        String announcement = crewMember.passengerAnnouncement(List.of(
+                new Passenger("Elvis", 2)
+        ));
+        assertTrue(announcement.contains("Eric"));
+        assertTrue(announcement.contains("Elvis"));
+    }
+
+    @Test
+    public void canMakePassengerAnnouncementWithMultiplePassengers() {
+        /* Check the output puts commas and "ands" in the right places */
+        CabinCrewMember crewMember = new CabinCrewMember("Eric", false);
+        String retval = crewMember.passengerAnnouncement(List.of(
+                new Passenger("P1", 2),
+                new Passenger("P2", 2),
+                new Passenger("P3", 2)
+        ));
+        assertTrue(retval.contains("P1, P2, and P3"));
     }
 
     @Test

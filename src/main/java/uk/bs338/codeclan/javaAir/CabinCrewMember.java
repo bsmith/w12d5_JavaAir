@@ -1,6 +1,6 @@
 package uk.bs338.codeclan.javaAir;
 
-import uk.bs338.codeclan.javaAir.util.NotImplementedException;
+import java.util.Iterator;
 
 public class CabinCrewMember extends CrewMember {
     private final boolean isPurser;
@@ -10,8 +10,26 @@ public class CabinCrewMember extends CrewMember {
         this.isPurser = isPurser;
     }
 
+    static void buildPassengerList(StringBuilder builder, Iterable<Passenger> passengers) {
+        Iterator<Passenger> iter = passengers.iterator();
+        while (iter.hasNext()) {
+            Passenger passenger = iter.next();
+            if (!iter.hasNext())
+                builder.append("and ");
+            builder.append(passenger.getName());
+            if (iter.hasNext())
+                builder.append(", ");
+        }
+    }
+
     String passengerAnnouncement(Iterable<Passenger> passengers) {
-        throw new NotImplementedException();
+        StringBuilder message = new StringBuilder();
+        message.append("Welcome about this flight! I'm ");
+        message.append(getName());
+        message.append(". ");
+        message.append("Today we have aboard: ");
+        buildPassengerList(message, passengers);
+        return message.toString();
     }
 
     @Override
