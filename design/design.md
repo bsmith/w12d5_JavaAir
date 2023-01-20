@@ -32,8 +32,8 @@ classDiagram
     }
     
     class PlaneType {
-      -double totalWeight
-      -double capacity
+      -int totalWeight
+      -int capacity
     }
     
     class Plane {
@@ -49,7 +49,7 @@ classDiagram
       -Plane aircraft
       -FlightDetails details
       +int getAvailableSeats()
-      +bookPassenger()
+      +bookPassenger(Passenger)
     }
     
     class FlightDetails {
@@ -76,3 +76,12 @@ in static objects that would be reused in multiple places in our code.
 FlightDetails is treated as a 'record' object and is compared by value not reference, and is also immutable.
 
 ZonedDateTime is from java.base.
+
+Interesting issue: RANK is separate from the subclasses for Pilot and CabinCrewMember and
+it has invalid ranks for some subclasses!  eg. a Pilot should not be a PURSER.
+
+CrewMember and NamedPerson should be abstract
+
+If I make FlightDetails immutable, the Flight needs to update the whole object.
+
+How much should I check for null?
