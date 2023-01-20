@@ -23,7 +23,7 @@ classDiagram
     }
     
     class CabinCrewMember {
-      +String passengerAnnouncement(Iterable<Passenger>)
+      +String passengerAnnouncement(Iterable~Passenger~)
     }
     
     class Pilot {
@@ -44,8 +44,8 @@ classDiagram
     class Flight {
       -Pilot captain
       -Pilot copilot
-      -ArrayList<CabinCrewMember> cabinCrew
-      -ArrayList<Passenger> passengers
+      -ArrayList~CabinCrewMember~ cabinCrew
+      -ArrayList~Passenger~ passengers
       -Plane aircraft
       -FlightDetails details
       +int getAvailableSeats()
@@ -56,8 +56,16 @@ classDiagram
       +String number
       +String destination
       +String departureAirport
-      +String ZonedDateTime
+      +ZonedDateTime departureTime
     }
+        
+    class FlightManager {
+      +calculateReservedWeightForBaggagePerPassenger(Flight)
+      +calculateBookedBaggageWeight(Flight)
+      +calculateRemainingBaggageWeight(Flight)
+    }
+    
+    Exception <|-- FlightFullException
     
 ```
 
