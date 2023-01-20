@@ -3,7 +3,6 @@ package uk.bs338.codeclan.javaAir;
 import org.junit.Before;
 import org.junit.Test;
 import uk.bs338.codeclan.javaAir.util.FlightFullException;
-import uk.bs338.codeclan.javaAir.util.NotImplementedException;
 
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
@@ -49,29 +48,29 @@ public class FlightTest {
         assertTrue(allCrew.contains(attendant));
     }
 
-    @Test(expected = NotImplementedException.class) /* TODO */
+//    @Test(expected = NotImplementedException.class)
+    @Test
     public void flightStartsEmpty() {
         assertEquals(5, flight.getAvailableSeats());
     }
 
-    @Test(expected = NotImplementedException.class) /* TODO */
+//    @Test(expected = NotImplementedException.class)
+    @Test
     public void availableSeatsDecreases() throws FlightFullException {
         assertTrue(flight.bookPassenger(passengerWithOneBag));
         assertEquals(4, flight.getAvailableSeats());
     }
 
-    @Test(expected = NotImplementedException.class) /* TODO */
+//    @Test(expected = NotImplementedException.class)
+    @Test
     public void cannotBookPassengerWithTooManyBags() throws FlightFullException {
         flight.bookPassenger(passengerWithOneBag);
         assertFalse(flight.bookPassenger(passengerWithFiveBags));
         assertEquals(4, flight.getAvailableSeats());
     }
 
-    /* Flights start empty */
-    /* Flights have a capacity for passengers */
-    /* Must not exceed the baggage allowance per person */
-
-    @Test(expected = NotImplementedException.class) /* TODO */
+//    @Test(expected = NotImplementedException.class)
+    @Test
     public void cannotExceedCapacityForPassengers() {
         try {
             for (int i = 0; i < 5; i++) {

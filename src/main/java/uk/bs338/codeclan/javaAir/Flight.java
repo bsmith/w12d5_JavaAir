@@ -1,7 +1,6 @@
 package uk.bs338.codeclan.javaAir;
 
 import uk.bs338.codeclan.javaAir.util.FlightFullException;
-import uk.bs338.codeclan.javaAir.util.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,12 +8,13 @@ import java.util.List;
 
 public class Flight {
     private final FlightCrew flightCrew;
-    private ArrayList<Passenger> passengers;
+    private final ArrayList<Passenger> passengers;
     private Plane aircraft;
     private FlightDetails details;
 
     public Flight(FlightDetails details, Plane aircraft) {
         this.flightCrew = new FlightCrew();
+        this.passengers = new ArrayList<>();
         this.aircraft = aircraft;
         this.details = details;
     }
@@ -76,7 +76,7 @@ public class Flight {
     }
 
     public int getAvailableSeats() {
-        throw new NotImplementedException();
+        return this.aircraft.getCapacity() - this.passengers.size();
     }
 
     /* If the passenger has too many bags, return false, otherwise, book the passenger
@@ -84,6 +84,14 @@ public class Flight {
       should have checked getAvailableSeats first.
      */
     public boolean bookPassenger(Passenger passenger) throws FlightFullException {
-        throw new NotImplementedException();
+        double baggageAllowance = this.aircraft.getBaggageAllowancePerPerson();
+        if (passenger.getNumberOfBags() > baggageAllowance)
+            return false;
+
+        if (this.getAvailableSeats() <= 0)
+            throw new FlightFullException();
+
+        this.passengers.add(passenger);
+        return true;
     }
 }

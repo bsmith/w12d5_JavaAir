@@ -1,7 +1,5 @@
 package uk.bs338.codeclan.javaAir;
 
-import uk.bs338.codeclan.javaAir.util.NotImplementedException;
-
 public class Plane {
     private final String registration;
     private final PlaneType type;
@@ -19,7 +17,7 @@ public class Plane {
         return type;
     }
 
-    public double getCapacity() {
+    public int getCapacity() {
         return type.getCapacity();
     }
 

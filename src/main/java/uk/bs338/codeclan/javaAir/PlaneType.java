@@ -3,7 +3,7 @@ package uk.bs338.codeclan.javaAir;
 public enum PlaneType {
     BOEING747(5, 20);
 
-    private final double capacity;
+    private final int capacity;
     private final double totalWeight;
 
     PlaneType(int capacity, int totalWeight) {
@@ -11,7 +11,7 @@ public enum PlaneType {
         this.totalWeight = totalWeight;
     }
 
-    public double getCapacity() {
+    public int getCapacity() {
         return capacity;
     }
 
