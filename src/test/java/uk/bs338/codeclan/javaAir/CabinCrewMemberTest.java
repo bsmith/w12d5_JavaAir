@@ -2,6 +2,7 @@ package uk.bs338.codeclan.javaAir;
 
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -11,7 +12,7 @@ public class CabinCrewMemberTest {
     @Test
     public void canMakePassengerAnnouncement() {
         CabinCrewMember crewMember = new CabinCrewMember("Eric", false);
-        String announcement = crewMember.passengerAnnouncement(List.of(
+        String announcement = crewMember.passengerAnnouncement(Arrays.asList(
                 new Passenger("Elvis", 2)
         ));
         assertTrue(announcement.contains("Eric"));
@@ -22,7 +23,7 @@ public class CabinCrewMemberTest {
     public void canMakePassengerAnnouncementWithMultiplePassengers() {
         /* Check the output puts commas and "ands" in the right places */
         CabinCrewMember crewMember = new CabinCrewMember("Eric", false);
-        String retval = crewMember.passengerAnnouncement(List.of(
+        String retval = crewMember.passengerAnnouncement(Arrays.asList(
                 new Passenger("P1", 2),
                 new Passenger("P2", 2),
                 new Passenger("P3", 2)

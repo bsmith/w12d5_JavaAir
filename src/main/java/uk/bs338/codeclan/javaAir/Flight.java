@@ -13,8 +13,9 @@ public class Flight {
     private Plane aircraft;
     private FlightDetails details;
 
-    public Flight(FlightDetails details) {
+    public Flight(FlightDetails details, Plane aircraft) {
         this.flightCrew = new FlightCrew();
+        this.aircraft = aircraft;
         this.details = details;
     }
 
@@ -22,32 +23,20 @@ public class Flight {
         return flightCrew.getCaptain();
     }
 
-    public void setCaptain(Pilot captain) {
-        this.flightCrew.setCaptain(captain);
+    public void addPilot(Pilot pilot) {
+        this.flightCrew.addPilot(pilot);
     }
 
     public Pilot getCopilot() {
         return flightCrew.getCopilot();
     }
 
-    public void setCopilot(Pilot copilot) {
-        this.flightCrew.setCopilot(copilot);
-    }
-
-    public ArrayList<CabinCrewMember> getCabinCrew() {
+    public List<CabinCrewMember> getCabinCrew() {
         return flightCrew.getCabinCrew();
-    }
-
-    public void setCabinCrew(List<CabinCrewMember> cabinCrew) {
-        this.flightCrew.setCabinCrew(cabinCrew);
     }
 
     public List<Passenger> getPassengers() {
         return Collections.unmodifiableList(passengers);
-    }
-
-    public void setPassengers(List<Passenger> passengers) {
-        this.passengers = new ArrayList<>(passengers);
     }
 
     public Plane getAircraft() {

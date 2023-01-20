@@ -1,39 +1,49 @@
 package uk.bs338.codeclan.javaAir;
 
+import uk.bs338.codeclan.javaAir.util.NotImplementedException;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class FlightCrew {
     private Pilot captain;
+    private Pilot copilot;
+    private ArrayList<CabinCrewMember> cabinCrew;
 
     public Pilot getCaptain() {
         return captain;
     }
 
-    public void setCaptain(Pilot captain) {
-        this.captain = captain;
-    }
-
-    private Pilot copilot;
-
     public Pilot getCopilot() {
         return copilot;
     }
 
-    public void setCopilot(Pilot copilot) {
-        this.copilot = copilot;
+    public void addPilot(Pilot pilot) {
+        throw new NotImplementedException();
     }
 
-    private ArrayList<CabinCrewMember> cabinCrew;
-
-    public ArrayList<CabinCrewMember> getCabinCrew() {
-        return cabinCrew;
+    public void removePilot(Pilot captain) {
+        throw new NotImplementedException();
     }
 
-    public void setCabinCrew(List<CabinCrewMember> cabinCrew) {
-        this.cabinCrew = new ArrayList<>(cabinCrew);
+    public List<CabinCrewMember> getCabinCrew() {
+        return Collections.unmodifiableList(cabinCrew);
     }
 
-    public FlightCrew() {
+    public void addCabinCrew(CabinCrewMember crewMember) {
+        this.cabinCrew.add(crewMember);
+    }
+
+    public void removeCabinCrew(CabinCrewMember crewMember) {
+        this.cabinCrew.remove(crewMember);
+    }
+
+    public boolean hasPurser() {
+        throw new NotImplementedException();
+    }
+
+    public List<CrewMember> getAllCrew() {
+        throw new NotImplementedException();
     }
 }
