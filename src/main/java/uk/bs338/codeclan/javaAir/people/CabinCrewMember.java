@@ -1,4 +1,4 @@
-package uk.bs338.codeclan.javaAir;
+package uk.bs338.codeclan.javaAir.people;
 
 import java.util.Iterator;
 
@@ -22,7 +22,7 @@ public class CabinCrewMember extends CrewMember {
         }
     }
 
-    String passengerAnnouncement(Iterable<Passenger> passengers) {
+    public String passengerAnnouncement(Iterable<Passenger> passengers) {
         StringBuilder message = new StringBuilder();
         message.append("Welcome about this flight! I'm ");
         message.append(getName());

@@ -1,5 +1,10 @@
-package uk.bs338.codeclan.javaAir;
+package uk.bs338.codeclan.javaAir.flights;
 
+import uk.bs338.codeclan.javaAir.people.CabinCrewMember;
+import uk.bs338.codeclan.javaAir.people.CrewMember;
+import uk.bs338.codeclan.javaAir.people.Passenger;
+import uk.bs338.codeclan.javaAir.people.Pilot;
+import uk.bs338.codeclan.javaAir.planes.Plane;
 import uk.bs338.codeclan.javaAir.util.FlightFullException;
 
 import java.util.ArrayList;

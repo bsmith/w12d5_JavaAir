@@ -2,6 +2,7 @@ package uk.bs338.codeclan.javaAir;
 
 import org.junit.Before;
 import org.junit.Test;
+import uk.bs338.codeclan.javaAir.flights.FlightDetails;
 
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;

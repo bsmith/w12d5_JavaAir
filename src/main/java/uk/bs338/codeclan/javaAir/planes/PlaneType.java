@@ -1,4 +1,4 @@
-package uk.bs338.codeclan.javaAir;
+package uk.bs338.codeclan.javaAir.planes;
 
 public enum PlaneType {
     BOEING747(5, 20);

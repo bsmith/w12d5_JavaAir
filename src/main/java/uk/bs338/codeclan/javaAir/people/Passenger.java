@@ -1,4 +1,4 @@
-package uk.bs338.codeclan.javaAir;
+package uk.bs338.codeclan.javaAir.people;
 
 public class Passenger extends NamedPerson {
     private final int numberOfBags;

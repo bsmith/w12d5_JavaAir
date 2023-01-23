@@ -1,4 +1,4 @@
-package uk.bs338.codeclan.javaAir;
+package uk.bs338.codeclan.javaAir.people;
 
 public abstract class CrewMember extends NamedPerson {
 

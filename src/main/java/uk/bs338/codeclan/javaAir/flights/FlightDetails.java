@@ -1,4 +1,4 @@
-package uk.bs338.codeclan.javaAir;
+package uk.bs338.codeclan.javaAir.flights;
 
 import java.time.ZonedDateTime;
 import java.util.Objects;

@@ -1,6 +1,9 @@
 package uk.bs338.codeclan.javaAir;
 
 import org.junit.Test;
+import uk.bs338.codeclan.javaAir.people.CabinCrewMember;
+import uk.bs338.codeclan.javaAir.people.Passenger;
+import uk.bs338.codeclan.javaAir.people.Rank;
 
 import java.util.Arrays;
 import java.util.Collections;
