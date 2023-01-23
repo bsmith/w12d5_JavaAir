@@ -2,8 +2,8 @@ package uk.bs338.codeclan.javaAir;
 
 import org.junit.Before;
 import org.junit.Test;
-import uk.bs338.codeclan.javaAir.planes.Plane;
-import uk.bs338.codeclan.javaAir.planes.PlaneType;
+import uk.bs338.codeclan.javaAir.flights.planes.Plane;
+import uk.bs338.codeclan.javaAir.flights.planes.PlaneType;
 
 import static org.junit.Assert.*;
 

@@ -3,9 +3,9 @@ package uk.bs338.codeclan.javaAir;
 import org.junit.Before;
 import org.junit.Test;
 import uk.bs338.codeclan.javaAir.flights.FlightCrew;
-import uk.bs338.codeclan.javaAir.people.CabinCrewMember;
-import uk.bs338.codeclan.javaAir.people.CrewMember;
-import uk.bs338.codeclan.javaAir.people.Pilot;
+import uk.bs338.codeclan.javaAir.people.crew.CabinCrewMember;
+import uk.bs338.codeclan.javaAir.people.crew.CrewMember;
+import uk.bs338.codeclan.javaAir.people.crew.Pilot;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package uk.bs338.codeclan.javaAir.people;
+package uk.bs338.codeclan.javaAir.people.crew;
 
-import uk.bs338.codeclan.javaAir.planes.Plane;
+import uk.bs338.codeclan.javaAir.flights.planes.Plane;
 
 public class Pilot extends CrewMember {
     private final boolean isCaptain;

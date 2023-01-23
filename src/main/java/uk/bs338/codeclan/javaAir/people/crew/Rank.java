@@ -1,4 +1,4 @@
-package uk.bs338.codeclan.javaAir.people;
+package uk.bs338.codeclan.javaAir.people.crew;
 
 public enum Rank {
     CAPTAIN,

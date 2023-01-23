@@ -4,12 +4,12 @@ import org.junit.Before;
 import org.junit.Test;
 import uk.bs338.codeclan.javaAir.flights.Flight;
 import uk.bs338.codeclan.javaAir.flights.FlightDetails;
-import uk.bs338.codeclan.javaAir.people.CabinCrewMember;
-import uk.bs338.codeclan.javaAir.people.CrewMember;
+import uk.bs338.codeclan.javaAir.people.crew.CabinCrewMember;
+import uk.bs338.codeclan.javaAir.people.crew.CrewMember;
 import uk.bs338.codeclan.javaAir.people.Passenger;
-import uk.bs338.codeclan.javaAir.people.Pilot;
-import uk.bs338.codeclan.javaAir.planes.Plane;
-import uk.bs338.codeclan.javaAir.planes.PlaneType;
+import uk.bs338.codeclan.javaAir.people.crew.Pilot;
+import uk.bs338.codeclan.javaAir.flights.planes.Plane;
+import uk.bs338.codeclan.javaAir.flights.planes.PlaneType;
 import uk.bs338.codeclan.javaAir.util.FlightFullException;
 
 import java.time.ZoneOffset;

@@ -1,4 +1,6 @@
-package uk.bs338.codeclan.javaAir.people;
+package uk.bs338.codeclan.javaAir.people.crew;
+
+import uk.bs338.codeclan.javaAir.people.Passenger;
 
 import java.util.Iterator;
 

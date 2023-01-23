@@ -1,4 +1,4 @@
-package uk.bs338.codeclan.javaAir.planes;
+package uk.bs338.codeclan.javaAir.flights.planes;
 
 public class Plane {
     private final String registration;
